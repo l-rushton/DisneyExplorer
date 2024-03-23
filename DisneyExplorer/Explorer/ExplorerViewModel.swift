@@ -8,9 +8,26 @@
 import Foundation
 import Observation
 
+@Observable
 class ExplorerViewModel {
-    private(set) var characters: [Character] = []
-    private(set) var viewState: ExplorerViewState = .notLoaded
+    private(set) var client: DisneyClient
+    private(set) var viewState: ExplorerViewState
+    
+    private(set) var characters: [Character]
+    
+    init(
+        client: DisneyClient = DisneyClient(),
+        viewState: ExplorerViewState = .notLoaded, 
+        characters: [Character] = []
+    ) {
+        self.client = client
+        self.viewState = viewState
+        self.characters = characters
+    }
+    
+    func getAllCharacters() async {
+        
+    }
 }
 
 enum ExplorerViewState {
