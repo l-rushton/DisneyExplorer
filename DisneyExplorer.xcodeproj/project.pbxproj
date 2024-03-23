@@ -28,6 +28,8 @@
 		D3FE83A62BAF311000784BF7 /* InvalidResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = D3FE83A42BAF30D400784BF7 /* InvalidResponse.json */; };
 		D3FE83A82BAF362500784BF7 /* ExplorerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FE83A72BAF362500784BF7 /* ExplorerViewModelTests.swift */; };
 		D3FE83AB2BAF397400784BF7 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FE83AA2BAF397400784BF7 /* Character.swift */; };
+		D3FE83AD2BAF440700784BF7 /* ExplorerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FE83AC2BAF440700784BF7 /* ExplorerView.swift */; };
+		D3FE83AF2BAF442900784BF7 /* CharacterCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FE83AE2BAF442900784BF7 /* CharacterCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		D3FE83A42BAF30D400784BF7 /* InvalidResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = InvalidResponse.json; sourceTree = "<group>"; };
 		D3FE83A72BAF362500784BF7 /* ExplorerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerViewModelTests.swift; sourceTree = "<group>"; };
 		D3FE83AA2BAF397400784BF7 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		D3FE83AC2BAF440700784BF7 /* ExplorerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerView.swift; sourceTree = "<group>"; };
+		D3FE83AE2BAF442900784BF7 /* CharacterCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				D3FE839C2BAF158B00784BF7 /* ExplorerViewModel.swift */,
+				D3FE83AC2BAF440700784BF7 /* ExplorerView.swift */,
+				D3FE83AE2BAF442900784BF7 /* CharacterCard.swift */,
 				D3FE83A92BAF396000784BF7 /* Models */,
 			);
 			path = Explorer;
@@ -353,7 +359,9 @@
 				D3FE83682BAEF72E00784BF7 /* DisneyExplorer.xcdatamodeld in Sources */,
 				D3FE83902BAF03AD00784BF7 /* DisneyClient.swift in Sources */,
 				D3FE83982BAF073800784BF7 /* GetAllDTO.swift in Sources */,
+				D3FE83AF2BAF442900784BF7 /* CharacterCard.swift in Sources */,
 				D3FE839D2BAF158B00784BF7 /* ExplorerViewModel.swift in Sources */,
+				D3FE83AD2BAF440700784BF7 /* ExplorerView.swift in Sources */,
 				D3FE83A32BAF1C7300784BF7 /* URLSessionProtocol.swift in Sources */,
 				D3FE83652BAEF72E00784BF7 /* Persistence.swift in Sources */,
 				D3FE835E2BAEF72B00784BF7 /* ContentView.swift in Sources */,
