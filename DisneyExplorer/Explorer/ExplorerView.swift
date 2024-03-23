@@ -36,8 +36,8 @@ struct ExplorerView: View {
                     List {
                         ForEach(viewModel.characters) { character in
                             ZStack(alignment: .leading) {
-                                NavigationLink(destination: Text("destination: ")) {
-                                    CharacterDetailsView(viewModel: CharacterDetailsViewModel(character: character, modelContext: viewModel.modelContext))
+                                NavigationLink(destination:  CharacterDetailsView(viewModel: CharacterDetailsViewModel(character: character, modelContext: viewModel.modelContext))) {
+                                   EmptyView()
                                 }
                                 .opacity(0)
                                 CharacterCard(character: character)
