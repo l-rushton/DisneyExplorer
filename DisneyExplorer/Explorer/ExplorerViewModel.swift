@@ -32,7 +32,7 @@ class ExplorerViewModel {
         
         switch result {
         case let .success(characterDTO):
-            let charactersResult: [Character] = characterDTO.data.map{ characterDTO in
+            let charactersResult: [Character] = characterDTO.data.compactMap{ characterDTO in
                 return Character(dto: characterDTO)
             }
             characters = charactersResult

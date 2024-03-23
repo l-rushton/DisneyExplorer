@@ -5,7 +5,7 @@
 //  Created by Louis Rushton on 23/03/2024.
 //
 
-struct Character: Equatable {
+struct Character: Equatable, Identifiable {
     let name: String
     let id: Int
     let films: [String]
@@ -29,12 +29,16 @@ struct Character: Equatable {
         self.imageUrl = imageUrl
     }
     
-    init(dto: CharacterDTO) {
-        self.name = dto.name
-        self.id = dto.id
-        self.films = dto.films
-        self.shortFilms = dto.films
-        self.url = dto.url
-        self.imageUrl = dto.imageUrl
+    init?(dto: CharacterDTO) {
+        guard let id = dto.id else{
+            return nil
+        }
+        
+        self.name = dto.name ?? ""
+        self.id = id
+        self.films = dto.films ?? [""]
+        self.shortFilms = dto.films ?? [""]
+        self.url = dto.url ?? ""
+        self.imageUrl = dto.imageUrl ?? ""
     }
 }

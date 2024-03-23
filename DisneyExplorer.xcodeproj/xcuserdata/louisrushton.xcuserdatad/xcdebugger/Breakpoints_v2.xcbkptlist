@@ -7,36 +7,20 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "83182E94-28B5-4F33-9E7E-E326C806A7C3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DisneyExplorerTests/MockDisneyClient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D68FDBD2-E8FE-4F99-BA05-0707DE98814D"
+            uuid = "82A8A99F-9151-4D31-AE13-80F3A716227E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DisneyExplorer/Explorer/ExplorerViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "getAllCharacters()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "D68FDBD2-E8FE-4F99-BA05-0707DE98814D - 7cd5ea5c3200c1c7"
+                  uuid = "82A8A99F-9151-4D31-AE13-80F3A716227E - 7cd5ea5c3200c143"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -46,12 +30,12 @@
                   urlString = "file:///Users/louisrushton/Documents/CODE/DisneyExplorer/DisneyExplorer/Explorer/ExplorerViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "459">
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "559">
                </Location>
                <Location
-                  uuid = "D68FDBD2-E8FE-4F99-BA05-0707DE98814D - 7cd5ea5c3200c101"
+                  uuid = "82A8A99F-9151-4D31-AE13-80F3A716227E - 7cd5ea5c3200c143"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -61,9 +45,9 @@
                   urlString = "file:///Users/louisrushton/Documents/CODE/DisneyExplorer/DisneyExplorer/Explorer/ExplorerViewModel.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38"
-                  offsetFromSymbolStart = "459">
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "567">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -71,99 +55,20 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "39B468EC-63D4-4DD0-89B6-88CFABF5BED4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DisneyExplorer/Explorer/ExplorerViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "getAllCharacters()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "39B468EC-63D4-4DD0-89B6-88CFABF5BED4 - 7cd5ea5c3200c185"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for DisneyExplorer.ExplorerViewModel.getAllCharacters() async -&gt; ()"
-                  moduleName = "DisneyExplorer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/louisrushton/Documents/CODE/DisneyExplorer/DisneyExplorer/Explorer/ExplorerViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "205">
-               </Location>
-               <Location
-                  uuid = "39B468EC-63D4-4DD0-89B6-88CFABF5BED4 - 7cd5ea5c3200c185"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for DisneyExplorer.ExplorerViewModel.getAllCharacters() async -&gt; ()"
-                  moduleName = "DisneyExplorer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/louisrushton/Documents/CODE/DisneyExplorer/DisneyExplorer/Explorer/ExplorerViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "241">
-               </Location>
-               <Location
-                  uuid = "39B468EC-63D4-4DD0-89B6-88CFABF5BED4 - 7cd5ea5c3200c185"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for DisneyExplorer.ExplorerViewModel.getAllCharacters() async -&gt; ()"
-                  moduleName = "DisneyExplorer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/louisrushton/Documents/CODE/DisneyExplorer/DisneyExplorer/Explorer/ExplorerViewModel.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "34"
-                  endingLineNumber = "34"
-                  offsetFromSymbolStart = "548">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "06612C08-9294-4B82-8879-089C4F29A5CA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DisneyExplorer/Explorer/ExplorerViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "getAllCharacters()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0D04BA57-97F8-42BA-8577-E81989AAD073"
+            uuid = "15A16084-FF9B-4EFB-88AA-4B6FC2935889"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DisneyExplorer/Networking/DisneyClient/DisneyClient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
             landmarkName = "getAllCharacters(url:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "0D04BA57-97F8-42BA-8577-E81989AAD073 - d0bb1f05f30ba893"
+                  uuid = "15A16084-FF9B-4EFB-88AA-4B6FC2935889 - d0bb1f05f30ba869"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -173,24 +78,24 @@
                   urlString = "file:///Users/louisrushton/Documents/CODE/DisneyExplorer/DisneyExplorer/Networking/DisneyClient/DisneyClient.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "1316">
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "283">
                </Location>
                <Location
-                  uuid = "0D04BA57-97F8-42BA-8577-E81989AAD073 - dbc8f6d84e14ce90"
+                  uuid = "15A16084-FF9B-4EFB-88AA-4B6FC2935889 - d0bb1f05f30ba869"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for DisneyExplorer.DisneyClient.getAllCharacters(url: Swift.String) async -&gt; Swift.Result&lt;DisneyExplorer.GetAllDTO, DisneyExplorer.ClientError&gt;"
+                  symbolName = "(3) suspend resume partial function for DisneyExplorer.DisneyClient.getAllCharacters(url: Swift.String) async -&gt; Swift.Result&lt;DisneyExplorer.GetAllDTO, DisneyExplorer.ClientError&gt;"
                   moduleName = "DisneyExplorer"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/louisrushton/Documents/CODE/DisneyExplorer/DisneyExplorer/Networking/DisneyClient/DisneyClient.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "29"
-                  endingLineNumber = "29"
-                  offsetFromSymbolStart = "678">
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "299">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -198,23 +103,55 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "717384B4-7869-47B3-9DCD-BC3FF9556539"
-            shouldBeEnabled = "No"
+            uuid = "CA1A20FC-620E-4025-AAE5-A93588E0F086"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DisneyExplorer/Networking/DisneyClient/DisneyClient.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "getAllCharacters(url:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CA1A20FC-620E-4025-AAE5-A93588E0F086 - d0bb1f05f30ba82f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for DisneyExplorer.DisneyClient.getAllCharacters(url: Swift.String) async -&gt; Swift.Result&lt;DisneyExplorer.GetAllDTO, DisneyExplorer.ClientError&gt;"
+                  moduleName = "DisneyExplorer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/louisrushton/Documents/CODE/DisneyExplorer/DisneyExplorer/Networking/DisneyClient/DisneyClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "601">
+               </Location>
+               <Location
+                  uuid = "CA1A20FC-620E-4025-AAE5-A93588E0F086 - d0bb1f05f30ba82f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for DisneyExplorer.DisneyClient.getAllCharacters(url: Swift.String) async -&gt; Swift.Result&lt;DisneyExplorer.GetAllDTO, DisneyExplorer.ClientError&gt;"
+                  moduleName = "DisneyExplorer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/louisrushton/Documents/CODE/DisneyExplorer/DisneyExplorer/Networking/DisneyClient/DisneyClient.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
+                  offsetFromSymbolStart = "667">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "41DC2F25-0556-426E-A522-0B97D85DEDF4"
+            uuid = "9A9D9D18-F2F4-46B6-8DCA-6186C7662833"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -227,7 +164,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "41DC2F25-0556-426E-A522-0B97D85DEDF4 - d0bb1f05f30ba951"
+                  uuid = "9A9D9D18-F2F4-46B6-8DCA-6186C7662833 - d0bb1f05f30ba951"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -242,7 +179,7 @@
                   offsetFromSymbolStart = "1568">
                </Location>
                <Location
-                  uuid = "41DC2F25-0556-426E-A522-0B97D85DEDF4 - dbc8f6d84e14cf52"
+                  uuid = "9A9D9D18-F2F4-46B6-8DCA-6186C7662833 - dbc8f6d84e14cf52"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -256,41 +193,8 @@
                   endingLineNumber = "31"
                   offsetFromSymbolStart = "842">
                </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2D35A8B0-2842-406E-A32C-6F488E1A3C18"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DisneyExplorer/Networking/DisneyClient/DisneyClient.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "getAllCharacters(url:)"
-            landmarkType = "7">
-            <Locations>
                <Location
-                  uuid = "2D35A8B0-2842-406E-A32C-6F488E1A3C18 - e9df22a2b6c2e5db"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for DisneyExplorer.DisneyClient.getAllCharacters(url: Swift.String) async -&gt; Swift.Result&lt;DisneyExplorer.GetAllDTO, DisneyExplorer.ClientError&gt;"
-                  moduleName = "DisneyExplorer"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/louisrushton/Documents/CODE/DisneyExplorer/DisneyExplorer/Networking/DisneyClient/DisneyClient.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "581">
-               </Location>
-               <Location
-                  uuid = "2D35A8B0-2842-406E-A32C-6F488E1A3C18 - d0bb1f05f30ba9d5"
+                  uuid = "9A9D9D18-F2F4-46B6-8DCA-6186C7662833 - d0bb1f05f30ba951"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -300,12 +204,12 @@
                   urlString = "file:///Users/louisrushton/Documents/CODE/DisneyExplorer/DisneyExplorer/Networking/DisneyClient/DisneyClient.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "1002">
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "1736">
                </Location>
                <Location
-                  uuid = "2D35A8B0-2842-406E-A32C-6F488E1A3C18 - dbc8f6d84e14cfd6"
+                  uuid = "9A9D9D18-F2F4-46B6-8DCA-6186C7662833 - dbc8f6d84e14cf52"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -315,9 +219,9 @@
                   urlString = "file:///Users/louisrushton/Documents/CODE/DisneyExplorer/DisneyExplorer/Networking/DisneyClient/DisneyClient.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "35"
-                  endingLineNumber = "35"
-                  offsetFromSymbolStart = "390">
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "897">
                </Location>
             </Locations>
          </BreakpointContent>

@@ -9,12 +9,12 @@ import SwiftUI
 
 struct CharacterCard: View {
     let character: Character
-    let onTap: () -> Void
+    
     
     var body: some View {
-        Button {
-            onTap()
-        } label : {
+//        Button {
+//            onTap()
+//        } label : {
             HStack {
                 characterImage(url: character.imageUrl)
                 Text(character.name)
@@ -26,7 +26,7 @@ struct CharacterCard: View {
             }
             .foregroundStyle(.black)
             .padding(5)
-        }
+//        }
     }
 }
 
@@ -66,8 +66,7 @@ func characterImage(url: String) -> some View {
             shortFilms: ["Short Tangled"],
             url: "",
             imageUrl: "https://static.wikia.nocookie.net/disney/images/1/15/Arianna_Tangled.jpg/revision/latest?cb=20160715191802"
-        ),
-        onTap: {}
+        )
     )
     .padding()
 }

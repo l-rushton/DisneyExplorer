@@ -11,8 +11,9 @@ import CoreData
 struct ContentView: View {
     
     var body: some View {
-        Text("Hello world")
-        
+        NavigationView {
+            ExplorerView(viewModel: ExplorerViewModel())
+        }
     }
 }
 //    @Environment(\.managedObjectContext) private var viewContext
