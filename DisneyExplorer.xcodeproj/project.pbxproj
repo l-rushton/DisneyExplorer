@@ -30,6 +30,9 @@
 		D3FE83AB2BAF397400784BF7 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FE83AA2BAF397400784BF7 /* Character.swift */; };
 		D3FE83AD2BAF440700784BF7 /* ExplorerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FE83AC2BAF440700784BF7 /* ExplorerView.swift */; };
 		D3FE83AF2BAF442900784BF7 /* CharacterCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FE83AE2BAF442900784BF7 /* CharacterCard.swift */; };
+		D3FE83B12BAF6DBF00784BF7 /* CharacterImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FE83B02BAF6DBF00784BF7 /* CharacterImage.swift */; };
+		D3FE83B32BAF701C00784BF7 /* DetailsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FE83B22BAF701C00784BF7 /* DetailsViewModelTests.swift */; };
+		D3FE83B52BAF717A00784BF7 /* CharacterDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FE83B42BAF717A00784BF7 /* CharacterDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +78,9 @@
 		D3FE83AA2BAF397400784BF7 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		D3FE83AC2BAF440700784BF7 /* ExplorerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplorerView.swift; sourceTree = "<group>"; };
 		D3FE83AE2BAF442900784BF7 /* CharacterCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCard.swift; sourceTree = "<group>"; };
+		D3FE83B02BAF6DBF00784BF7 /* CharacterImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterImage.swift; sourceTree = "<group>"; };
+		D3FE83B22BAF701C00784BF7 /* DetailsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModelTests.swift; sourceTree = "<group>"; };
+		D3FE83B42BAF717A00784BF7 /* CharacterDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +160,7 @@
 				D3FE83912BAF04D600784BF7 /* StubData.swift */,
 				D3FE83932BAF053000784BF7 /* JsonResponses */,
 				D3FE83A72BAF362500784BF7 /* ExplorerViewModelTests.swift */,
+				D3FE83B22BAF701C00784BF7 /* DetailsViewModelTests.swift */,
 			);
 			path = DisneyExplorerTests;
 			sourceTree = "<group>";
@@ -199,6 +206,8 @@
 			children = (
 				D3FE839C2BAF158B00784BF7 /* ExplorerViewModel.swift */,
 				D3FE83AC2BAF440700784BF7 /* ExplorerView.swift */,
+				D3FE83B42BAF717A00784BF7 /* CharacterDetailsView.swift */,
+				D3FE83B02BAF6DBF00784BF7 /* CharacterImage.swift */,
 				D3FE83AE2BAF442900784BF7 /* CharacterCard.swift */,
 				D3FE83A92BAF396000784BF7 /* Models */,
 			);
@@ -358,6 +367,7 @@
 				D3FE83AB2BAF397400784BF7 /* Character.swift in Sources */,
 				D3FE83682BAEF72E00784BF7 /* DisneyExplorer.xcdatamodeld in Sources */,
 				D3FE83902BAF03AD00784BF7 /* DisneyClient.swift in Sources */,
+				D3FE83B12BAF6DBF00784BF7 /* CharacterImage.swift in Sources */,
 				D3FE83982BAF073800784BF7 /* GetAllDTO.swift in Sources */,
 				D3FE83AF2BAF442900784BF7 /* CharacterCard.swift in Sources */,
 				D3FE839D2BAF158B00784BF7 /* ExplorerViewModel.swift in Sources */,
@@ -366,6 +376,7 @@
 				D3FE83652BAEF72E00784BF7 /* Persistence.swift in Sources */,
 				D3FE835E2BAEF72B00784BF7 /* ContentView.swift in Sources */,
 				D3FE835C2BAEF72B00784BF7 /* DisneyExplorerApp.swift in Sources */,
+				D3FE83B52BAF717A00784BF7 /* CharacterDetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +386,7 @@
 			files = (
 				D3FE83922BAF04D600784BF7 /* StubData.swift in Sources */,
 				D3FE83A82BAF362500784BF7 /* ExplorerViewModelTests.swift in Sources */,
+				D3FE83B32BAF701C00784BF7 /* DetailsViewModelTests.swift in Sources */,
 				D3FE838B2BAEFF8F00784BF7 /* DisneyClientTests.swift in Sources */,
 				D3FE839F2BAF1B3200784BF7 /* MockURLSession.swift in Sources */,
 			);

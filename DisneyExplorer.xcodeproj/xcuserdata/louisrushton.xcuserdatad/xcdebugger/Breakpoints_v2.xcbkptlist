@@ -14,10 +14,10 @@
             filePath = "DisneyExplorer/Explorer/ExplorerViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "getAllCharacters()"
-            landmarkType = "7">
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "surface error messages"
+            landmarkType = "19">
             <Locations>
                <Location
                   uuid = "82A8A99F-9151-4D31-AE13-80F3A716227E - 7cd5ea5c3200c143"
@@ -48,6 +48,21 @@
                   startingLineNumber = "40"
                   endingLineNumber = "40"
                   offsetFromSymbolStart = "567">
+               </Location>
+               <Location
+                  uuid = "82A8A99F-9151-4D31-AE13-80F3A716227E - 7cd5ea5c3200c143"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for DisneyExplorer.ExplorerViewModel.getAllCharacters() async -&gt; ()"
+                  moduleName = "DisneyExplorer"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/louisrushton/Documents/CODE/DisneyExplorer/DisneyExplorer/Explorer/ExplorerViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "582">
                </Location>
             </Locations>
          </BreakpointContent>

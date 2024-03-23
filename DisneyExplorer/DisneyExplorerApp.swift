@@ -6,15 +6,24 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct DisneyExplorerApp: App {
-    let persistenceController = PersistenceController.shared
+    let container: ModelContainer
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-//                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            ContentView(modelContext: container.mainContext)
+        }
+        .modelContainer(container)
+    }
+    
+    init() {
+        do {
+            container = try ModelContainer(for: Character.self)
+        } catch {
+            fatalError("Failed to create ModelContainer, favourite characters won't load")
         }
     }
 }

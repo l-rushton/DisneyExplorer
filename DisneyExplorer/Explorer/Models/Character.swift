@@ -5,7 +5,10 @@
 //  Created by Louis Rushton on 23/03/2024.
 //
 
-struct Character: Equatable, Identifiable {
+import SwiftData
+
+@Model
+class Character: Equatable, Identifiable {
     let name: String
     let id: Int
     let films: [String]

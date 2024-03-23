@@ -24,7 +24,7 @@ final class ExplorerViewModelTests: XCTestCase {
         let elsa = Character(dto: MockResponse.elsa)
         let queenArianna = Character(dto: MockResponse.queenArianna)
         
-        let characters: [Character] = [queenArianna, elsa]
+        let characters: [Character] = [queenArianna!, elsa!]
         
         XCTAssertEqual(sut.characters, characters)
         XCTAssertEqual(sut.viewState, .loaded)
