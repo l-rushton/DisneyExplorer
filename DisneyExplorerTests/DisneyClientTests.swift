@@ -72,4 +72,14 @@ final class DisneyClientTests: XCTestCase {
        
         XCTAssertEqual(response, .success(responseDTO))
     }
+    
+    func test_getAllCharacters_failure() async {
+        let sut = MockDisneyClient(environment: .failure)
+        
+        let response = await sut.getAllCharacters()
+        
+        let error = ClientError.networkError
+        
+        XCTAssertEqual(response, .failure(error))
+    }
 }
