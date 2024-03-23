@@ -9,15 +9,14 @@ import Foundation
 @testable import DisneyExplorer
 
 struct StubData {
-    static func read<V: Decodable>(file: String) throws -> V {
+    static func read(file: String) throws -> Data {
         guard let path = Bundle.main.path(forResource: file, ofType: "json") else {
             throw StubDataError.noFileDetected
         }
 
         do {
             let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-            let result = try JSONDecoder().decode(V.self, from: data)
-            return result
+            return data
         } catch {
             throw StubDataError.decodingError
         }

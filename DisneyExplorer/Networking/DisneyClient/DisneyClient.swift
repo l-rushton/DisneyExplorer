@@ -7,20 +7,16 @@
 
 import Foundation
 
-protocol DisneyClientProtocol {
-    var urlSession: URLSessionProtocol { get }
-    func getAllCharacters() async -> Result<GetAllDTO, ClientError>
-}
-
-class DisneyClient: DisneyClientProtocol {
+class DisneyClient {
     let urlSession: URLSessionProtocol
     
     init(urlSession: URLSessionProtocol = URLSession.shared) {
         self.urlSession = urlSession
     }
     
-    func getAllCharacters() async -> Result<GetAllDTO, ClientError> {
-        let url = URL(string: "https://api.disneyapi.dev/character")
+    func getAllCharacters(url: String = ClientUrls.getAllCharacters.rawValue) async -> Result<GetAllDTO, ClientError> {
+        let url = URL(string: url)
+        
         if let url {
             do {
                 let (data, _) = try await urlSession.data(from: url)
@@ -45,4 +41,8 @@ enum ClientError: Error {
     case networkError
     case decodingError
     case invalidUrl
+}
+
+enum ClientUrls: String {
+    case getAllCharacters = "https://api.disneyapi.dev/character"
 }

@@ -1,0 +1,9 @@
+
+{
+    "info": {
+        "totalPages": 149,
+        "count": 50,
+        "previousPage": "https://api.disneyapi.dev/character?page=3",
+        "nextPage": "https://api.disneyapi.dev/character?page=5"
+    }
+    

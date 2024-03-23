@@ -63,22 +63,51 @@ final class DisneyClientTests: XCTestCase {
         elsa = nil
     }
     
-    func test_getAllCharacters_success() async {
-        let sut: DisneyClientProtocol = MockDisneyClient(environment: .success)
+    func test_getAllCharacters_success() async throws {
+        let data = try StubData.read(file: "GetAllSuccess")
+        let httpSuccess = URLResponse()
+        let successUrlSession = MockURLSession(data: data, urlResponse: httpSuccess)
+        let sut = DisneyClient(urlSession: successUrlSession)
         
         let response = await sut.getAllCharacters()
         
-        let responseDTO = GetAllDTO(info: info, data: [queenArianna, elsa])
+        let expectedResponse = GetAllDTO(info: info, data: [queenArianna, elsa])
        
-        XCTAssertEqual(response, .success(responseDTO))
+        XCTAssertEqual(response, .success(expectedResponse))
     }
     
     func test_getAllCharacters_failure() async {
-        let sut = MockDisneyClient(environment: .failure)
+        let failingUrlSession = MockURLSession()
+        let sut = DisneyClient(urlSession: failingUrlSession)
         
         let response = await sut.getAllCharacters()
         
         let error = ClientError.networkError
+        
+        XCTAssertEqual(response, .failure(error))
+    }
+    
+    func test_getAllCharacters_decodingFailure() async throws {
+        let data = try StubData.read(file: "InvalidResponse")
+        let httpSuccess = URLResponse()
+        let successUrlSession = MockURLSession(data: data, urlResponse: httpSuccess)
+        let sut = DisneyClient(urlSession: successUrlSession)
+        
+        let response = await sut.getAllCharacters()
+        
+        let error = ClientError.decodingError
+        
+        XCTAssertEqual(response, .failure(error))
+    }
+    
+    func test_getAllCharacters_invalidUrl() async throws {
+        let invalidUrl = ""
+        let successUrlSession = MockURLSession()
+        let sut = DisneyClient(urlSession: successUrlSession)
+        
+        let response = await sut.getAllCharacters(url: invalidUrl)
+        
+        let error = ClientError.invalidUrl
         
         XCTAssertEqual(response, .failure(error))
     }

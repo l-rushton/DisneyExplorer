@@ -13,6 +13,12 @@ class MockURLSession: URLSessionProtocol {
     var urlResponse: URLResponse?
     var error: Error?
 
+    init(data: Data? = nil, urlResponse: URLResponse? = nil, error: Error? = nil) {
+        self.data = data
+        self.urlResponse = urlResponse
+        self.error = error
+    }
+    
     func data(from url: URL) async throws -> (Data, URLResponse) {
         guard let data = self.data else {
             throw URLError(.badServerResponse)
