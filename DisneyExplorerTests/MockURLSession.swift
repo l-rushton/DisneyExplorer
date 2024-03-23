@@ -20,12 +20,10 @@ class MockURLSession: URLSessionProtocol {
     }
     
     func data(from url: URL) async throws -> (Data, URLResponse) {
-        guard let data = self.data else {
+        guard error == nil, let data = self.data, let urlResponse = self.urlResponse else {
             throw URLError(.badServerResponse)
         }
-        guard let urlResponse = self.urlResponse else {
-            throw URLError(.badServerResponse)
-        }
+
         return (data, urlResponse)
     }
 }

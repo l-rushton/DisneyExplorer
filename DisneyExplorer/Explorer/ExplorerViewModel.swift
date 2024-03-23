@@ -26,7 +26,21 @@ class ExplorerViewModel {
     }
     
     func getAllCharacters() async {
+        viewState = .loading
         
+        let result = await client.getAllCharacters()
+        
+        switch result {
+        case let .success(characterDTO):
+            let charactersResult: [Character] = characterDTO.data.map{ characterDTO in
+                return Character(dto: characterDTO)
+            }
+            characters = charactersResult
+            viewState = .loaded
+        case let .failure(error):
+            // TODO: surface error messages
+            viewState = .error
+        }
     }
 }
 
