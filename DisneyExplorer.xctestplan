@@ -1,0 +1,36 @@
+{
+  "configurations" : [
+    {
+      "id" : "A161653C-677F-4EAB-BCBF-586CF1D67B08",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:DisneyExplorer.xcodeproj",
+      "identifier" : "D3FE83572BAEF72B00784BF7",
+      "name" : "DisneyExplorer"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:DisneyExplorer.xcodeproj",
+        "identifier" : "D3FE836C2BAEF72F00784BF7",
+        "name" : "DisneyExplorerTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:DisneyExplorer.xcodeproj",
+        "identifier" : "D3FE83762BAEF72F00784BF7",
+        "name" : "DisneyExplorerUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
