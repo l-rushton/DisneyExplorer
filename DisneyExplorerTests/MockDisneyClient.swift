@@ -9,10 +9,13 @@
 import Foundation
 
 class MockDisneyClient: DisneyClientProtocol {
+    var urlSession: URLSessionProtocol
+    
     let environment: MockDisneyClientEnvironment
     
     init(environment: MockDisneyClientEnvironment) {
         self.environment = environment
+        self.urlSession = MockURLSession()
     }
     
     func getAllCharacters() async -> Result<GetAllDTO, ClientError> {
