@@ -32,7 +32,6 @@ class ExplorerViewModel {
         self.favourites = favourites
         
         self.modelContext = modelContext
-        fetchFavourites()
     }
     
     func fetchFavourites() {
@@ -40,7 +39,7 @@ class ExplorerViewModel {
             let descriptor = FetchDescriptor<Character>()
             favourites = try modelContext.fetch(descriptor)
         } catch {
-            debugPrint("Fech failed")
+            debugPrint("Fetch failed")
         }
     }
     

@@ -1,45 +1,17 @@
 //
-//  CharacterDetailsView.swift
+//  CharacterDetailsViewModel.swift
 //  DisneyExplorer
 //
-//  Created by Louis Rushton on 23/03/2024.
+//  Created by Louis Rushton on 24/03/2024.
 //
 
-import SwiftUI
+import Foundation
 import SwiftData
+import Observation
 
-struct CharacterDetailsView: View {
-    // Using stateobject because you can't use property wrappers inside macros like observable
-    
-    // try refactoring swiftdata crud out and trying again
-    @StateObject var viewModel: CharacterDetailsViewModel
-    
-    var body: some View {
-        VStack {
-            characterImage(url: viewModel.character.imageUrl, size: 300)
-            Text(viewModel.character.name)
-            List {
-                Text("Films: \(viewModel.filmsString)")
-                Text("Short films: \(viewModel.shortFilmsString)")
-            }
-            
-            Button {
-                viewModel.saveCharacterToFavourites()
-            } label: {
-                Text("Save")
-            }
-            
-            Button {
-                viewModel.deleteCharacterFromFavourites()
-            } label: {
-                Text("Delete")
-            }
-        }
-    }
-}
-
+@Observable
 class CharacterDetailsViewModel: ObservableObject {
-    var modelContext: ModelContext
+    private var modelContext: ModelContext
     
     private(set) var character: Character
     private(set) var isFavourite: Bool
@@ -63,19 +35,32 @@ class CharacterDetailsViewModel: ObservableObject {
         descriptor.fetchLimit = 1
         
         do {
-            let _ = try modelContext.fetch(descriptor)
-            isFavourite = true
+            let ch = try modelContext.fetch(descriptor)
+            isFavourite = ch.isEmpty ? false : true
         } catch {
             isFavourite = false
         }
     }
     
     func deleteCharacterFromFavourites() {
-        modelContext.delete(character)
+        let id = character.id
+        do {
+            try modelContext.delete(model: Character.self, where: #Predicate {
+                $0.id == id
+            })
+            
+            //        try modelContext.save()
+            
+            isFavourite = false
+        } catch {
+            debugPrint("Couldn't delete character")
+        }
     }
     
     func saveCharacterToFavourites() {
         modelContext.insert(character)
+        try? modelContext.save()
+        isFavourite = true
     }
     
     func makeFilmsString(films: [String]) -> String {
@@ -84,7 +69,7 @@ class CharacterDetailsViewModel: ObservableObject {
             return string
         }
 
-        for film in character.films {
+        for film in films {
             string.append("\(film), ")
         }
         string.removeLast(2)

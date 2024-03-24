@@ -13,7 +13,6 @@ struct ExplorerView: View {
     
     var body: some View {
         ZStack {
-            Color.mint
             switch viewModel.viewState {
             case .notLoaded:
                 EmptyView()
@@ -21,18 +20,26 @@ struct ExplorerView: View {
                 ProgressView()
             case .loaded:
                 VStack {
-                    VStack(alignment: .leading) {
-                        Text("Favourites")
+                    HStack {
                         if viewModel.favourites.isEmpty {
-                            Text("You can add favourites in character details!")
+                            Text("Add favourites in character details!")
                         } else {
                             ScrollView(.horizontal) {
-                                ForEach(viewModel.favourites) { favourite in
-                                    characterImage(url: favourite.imageUrl, size: 25)
+                                HStack {
+                                    Text("Favourites:")
+                                        .font(.subheadline)
+                                    ForEach(viewModel.favourites) { favourite in
+                                        characterImage(url: favourite.imageUrl, size: 25)
+                                    }
                                 }
                             }
                         }
                     }
+                    .padding()
+                    .background(Color.yellow)
+                    .padding()
+                    .cornerRadius(10)
+                    
                     List {
                         ForEach(viewModel.characters) { character in
                             ZStack(alignment: .leading) {
@@ -48,6 +55,9 @@ struct ExplorerView: View {
                     }
                 }
                 .navigationTitle("Explorer")
+                .onAppear {
+                    viewModel.fetchFavourites()
+                }
             case .error:
                 // TODO: change
                 Text("error")
