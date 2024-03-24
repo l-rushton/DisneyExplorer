@@ -45,11 +45,7 @@ class CharacterDetailsViewModel: ObservableObject {
     func deleteCharacterFromFavourites() {
         let id = character.id
         do {
-            try modelContext.delete(model: Character.self, where: #Predicate {
-                $0.id == id
-            })
-            
-            //        try modelContext.save()
+            try modelContext.delete(model: Character.self, where: #Predicate { $0.id == id})
             
             isFavourite = false
         } catch {
@@ -65,13 +61,15 @@ class CharacterDetailsViewModel: ObservableObject {
     
     func makeFilmsString(films: [String]) -> String {
         var string = ""
-        guard films.isEmpty else {
+        
+        guard !films.isEmpty else {
             return string
         }
 
         for film in films {
             string.append("\(film), ")
         }
+        
         string.removeLast(2)
         return string
     }

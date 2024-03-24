@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D31040962BB04B15007C695C /* CharacterDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31040952BB04B15007C695C /* CharacterDetailsViewModel.swift */; };
+		D31040982BB07A78007C695C /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31040972BB07A77007C695C /* ActionButton.swift */; };
 		D3FE835C2BAEF72B00784BF7 /* DisneyExplorerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FE835B2BAEF72B00784BF7 /* DisneyExplorerApp.swift */; };
 		D3FE835E2BAEF72B00784BF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FE835D2BAEF72B00784BF7 /* ContentView.swift */; };
 		D3FE83602BAEF72E00784BF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3FE835F2BAEF72E00784BF7 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		D31040952BB04B15007C695C /* CharacterDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewModel.swift; sourceTree = "<group>"; };
+		D31040972BB07A77007C695C /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		D3FE83582BAEF72B00784BF7 /* DisneyExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DisneyExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3FE835B2BAEF72B00784BF7 /* DisneyExplorerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisneyExplorerApp.swift; sourceTree = "<group>"; };
 		D3FE835D2BAEF72B00784BF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 			children = (
 				D3FE83B42BAF717A00784BF7 /* CharacterDetailsView.swift */,
 				D31040952BB04B15007C695C /* CharacterDetailsViewModel.swift */,
+				D31040972BB07A77007C695C /* ActionButton.swift */,
 			);
 			path = CharacterDetails;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 				D3FE835E2BAEF72B00784BF7 /* ContentView.swift in Sources */,
 				D3FE835C2BAEF72B00784BF7 /* DisneyExplorerApp.swift in Sources */,
 				D3FE83B52BAF717A00784BF7 /* CharacterDetailsView.swift in Sources */,
+				D31040982BB07A78007C695C /* ActionButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

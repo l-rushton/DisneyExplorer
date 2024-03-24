@@ -10,6 +10,12 @@ import SwiftData
 
 struct ExplorerView: View {
     @State private var viewModel: ExplorerViewModel
+    @State private var fetched: Bool = false
+    
+    init(modelContext: ModelContext) {
+         let viewModel = ExplorerViewModel(modelContext: modelContext)
+        _viewModel = State(initialValue: viewModel)
+    }
     
     var body: some View {
         ZStack {
@@ -20,27 +26,32 @@ struct ExplorerView: View {
                 ProgressView()
             case .loaded:
                 VStack {
-                    HStack {
+                    List {
                         if viewModel.favourites.isEmpty {
-                            Text("Add favourites in character details!")
+                            HStack {
+                                Spacer()
+                                Text("No favourites yet...")
+                                    .font(.subheadline)
+                                    .foregroundStyle(.gray)
+                                Spacer()
+                            }
                         } else {
-                            ScrollView(.horizontal) {
-                                HStack {
-                                    Text("Favourites:")
-                                        .font(.subheadline)
-                                    ForEach(viewModel.favourites) { favourite in
-                                        characterImage(url: favourite.imageUrl, size: 25)
+                            HStack {
+                                ScrollView(.horizontal) {
+                                    HStack {
+                                        Text("Favourites:")
+                                            .font(.subheadline)
+                                        ForEach(viewModel.favourites) { favourite in
+                                            characterImage(url: favourite.imageUrl, size: 50)
+                                        }
                                     }
                                 }
                             }
+                            .padding()
+                            .background(Color.yellow)
+                            .cornerRadius(10)
                         }
-                    }
-                    .padding()
-                    .background(Color.yellow)
-                    .padding()
-                    .cornerRadius(10)
-                    
-                    List {
+                        
                         ForEach(viewModel.characters) { character in
                             ZStack(alignment: .leading) {
                                 NavigationLink(destination:  CharacterDetailsView(viewModel: CharacterDetailsViewModel(character: character, modelContext: viewModel.modelContext))) {
@@ -58,18 +69,32 @@ struct ExplorerView: View {
                 .onAppear {
                     viewModel.fetchFavourites()
                 }
+                .refreshable {
+                    await viewModel.getAllCharacters()
+                }
             case .error:
-                // TODO: change
-                Text("error")
+                VStack {
+                    Text("Error")
+                    Button {
+                        Task {
+                            await viewModel.getAllCharacters()
+                        }
+                    } label: {
+                        Text("Retry")
+                            .padding()
+                            .background(.red)
+                            .cornerRadius(10)
+                            .padding()
+                        
+                    }
+                }
             }
         }
         .task {
-            await viewModel.getAllCharacters()
+            if !fetched {
+                fetched = true
+                await viewModel.getAllCharacters()
+            }
         }
-    }
-    
-    init(modelContext: ModelContext) {
-         let viewModel = ExplorerViewModel(modelContext: modelContext)
-        _viewModel = State(initialValue: viewModel)
     }
 }
