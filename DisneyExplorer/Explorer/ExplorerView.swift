@@ -114,9 +114,11 @@ struct ExplorerView: View {
                 }
             }
         }
-        .task {
+        .onAppear {
             if !viewModel.fetched {
-                await viewModel.getCharacters()
+                Task {
+                    await viewModel.getCharacters()
+                }   
             }
         }
     }
