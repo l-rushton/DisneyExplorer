@@ -33,12 +33,12 @@ final class StorageManagerTests: XCTestCase {
     }
     
     func test_store() async throws {
-        let emptyArray = try await sut.fetchAll()
+        let emptyArray = await sut.fetchAll()
         XCTAssert(emptyArray.isEmpty)
 
         try await sut.store(elsa)
         
-        let fetchedResults = try await sut.fetchAll()
+        let fetchedResults = await sut.fetchAll()
         XCTAssertEqual(fetchedResults.first, elsa)
         XCTAssertEqual(fetchedResults.count, 1)
     }
@@ -46,28 +46,29 @@ final class StorageManagerTests: XCTestCase {
     func test_delete_success() async throws {
         try await self.sut.store(elsa)
         
-        let fetchedResults = try await sut.fetchAll()
+        let fetchedResults = await sut.fetchAll()
         XCTAssertEqual(fetchedResults.first, elsa)
         
-        try await sut.delete(id: elsa.id)
+        let isDeleted = await sut.delete(id: elsa.id)
+        
+        XCTAssertTrue(isDeleted)
         
         var newFetchedResults = [elsa]
         
-        newFetchedResults = try await sut.fetchAll()
+        newFetchedResults = await sut.fetchAll()
         XCTAssertEqual(newFetchedResults.count, 0)
     }
     
     func test_isCharacterFavourite_true() async throws {
         try await self.sut.store(elsa)
         
-        let isFavourite = try await self.sut.isCharacterFavourite(id: elsa.id)
+        let isFavourite = await self.sut.isCharacterFavourite(id: elsa.id)
         
         XCTAssertTrue(isFavourite)
     }
     
-    
-    func test_isCharacterFavourite_false() async throws {
-        let isFavourite = try await self.sut.isCharacterFavourite(id: elsa.id)
+    func test_isCharacterFavourite_false() async {
+        let isFavourite = await self.sut.isCharacterFavourite(id: elsa.id)
         
         XCTAssertFalse(isFavourite)
     }
