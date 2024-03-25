@@ -39,11 +39,7 @@ class ExplorerViewModel {
     }
     
     func fetchFavourites() async {
-        do {
-            favourites = try await storageManager.fetchAll()
-        } catch {
-            favourites = []
-        }
+        favourites = await storageManager.fetchAll()
     }
     
     func getCharacters(nextPage: Bool = false) async {

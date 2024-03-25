@@ -29,22 +29,13 @@ class CharacterDetailsViewModel: ObservableObject {
     func checkCharacterIsFavourite() async {
         let matchingId = character.id
         
-        do {
-            isFavourite = try await storageManager.isCharacterFavourite(id: matchingId)
-        } catch {
-            isFavourite = false
-        }
+        isFavourite = await storageManager.isCharacterFavourite(id: matchingId)
     }
     
     func deleteCharacterFromFavourites() async throws {
         let id = character.id
         
-        do {
-            try await storageManager.delete(id: id)
-            isFavourite = false
-        } catch {
-            isFavourite = true
-        }
+        isFavourite = await !storageManager.delete(id: id)
     }
     
     func saveCharacterToFavourites() async {

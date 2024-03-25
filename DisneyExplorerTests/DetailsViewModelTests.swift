@@ -11,23 +11,27 @@ import SwiftData
 
 final class DetailsViewModelTests: XCTestCase {
     var storageManager: StorageManager!
+    var elsa: Character!
     
     override func setUp() async throws {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Character.self, configurations: config)
         storageManager = StorageManager.init(modelContainer: container)
+        
+        elsa = Character(dto: MockResponse.elsa)
+        
+        guard elsa != nil else {
+            XCTFail()
+            return
+        }
     }
     
     override func tearDown() {
         storageManager = nil
+        elsa = nil
     }
     
     func test_checkCharacterIsFavourite() async throws {
-        guard let elsa = Character(dto: MockResponse.elsa) else {
-            XCTFail()
-            return
-        }
-        
         let sut = CharacterDetailsViewModel(character: elsa, storageManager: self.storageManager)
         
         await sut.checkCharacterIsFavourite()
@@ -42,11 +46,6 @@ final class DetailsViewModelTests: XCTestCase {
     }
     
     func test_deleteCharacterFromFavourites() async throws {
-        guard let elsa = Character(dto: MockResponse.elsa) else {
-            XCTFail()
-            return
-        }
-        
         try? await self.storageManager.store(elsa)
         
         let sut = CharacterDetailsViewModel(character: elsa, storageManager: self.storageManager)
@@ -61,11 +60,6 @@ final class DetailsViewModelTests: XCTestCase {
     }
     
     func test_saveCharacterToFavourites() async throws {
-        guard let elsa = Character(dto: MockResponse.elsa) else {
-            XCTFail()
-            return
-        }
-        
         let sut = CharacterDetailsViewModel(character: elsa, storageManager: self.storageManager)
         
         await sut.checkCharacterIsFavourite()
@@ -86,13 +80,7 @@ final class DetailsViewModelTests: XCTestCase {
         let durian = "durian"
         
         let arr = [apple, pear, banana, orange, dragonFruit, durian]
-        
         let expectedString = "apple, pear, banana, orange, dragon fruit, durian"
-        
-        guard let elsa = Character(dto: MockResponse.elsa) else {
-            XCTFail()
-            return
-        }
         
         let sut = CharacterDetailsViewModel(character: elsa, storageManager: self.storageManager)
         

@@ -11,15 +11,27 @@ import SwiftData
 
 final class ExplorerViewModelTests: XCTestCase {
     var storageManager: StorageManager!
+    var elsa: Character!
+    var queenArianna: Character!
     
     override func setUp() async throws {
         let config = ModelConfiguration(isStoredInMemoryOnly: true)
         let container = try ModelContainer(for: Character.self, configurations: config)
         storageManager = StorageManager.init(modelContainer: container)
+        
+        elsa = Character(dto: MockResponse.elsa)
+        queenArianna = Character(dto: MockResponse.queenArianna)
+        
+        guard elsa != nil, queenArianna != nil else {
+            XCTFail()
+            return
+        }
     }
     
     override func tearDown() {
         storageManager = nil
+        elsa = nil
+        queenArianna = nil
     }
     
     func test_getCharacters_success() async throws {
@@ -33,42 +45,35 @@ final class ExplorerViewModelTests: XCTestCase {
         XCTAssertEqual(sut.viewState, .notLoaded)
         
         await sut.getCharacters()
-        
-        let elsa = Character(dto: MockResponse.elsa)
-        let queenArianna = Character(dto: MockResponse.queenArianna)
-        
-        if let elsa = elsa, let queenArianna = queenArianna {
-            // The @Model macro seems to be giving difference instances of the same Character type a
-            // different hidden "persistentBackingData" value which breaks the expected equality.
-            // Resorting to comparing all expected values indiviudally
-            XCTAssertEqual(sut.characters[0].name, queenArianna.name)
-            XCTAssertEqual(sut.characters[0].id, queenArianna.id)
-            XCTAssertEqual(sut.characters[0].films, queenArianna.films)
-            XCTAssertEqual(sut.characters[0].shortFilms, queenArianna.shortFilms)
-            XCTAssertEqual(sut.characters[0].tvShows, queenArianna.tvShows)
-            XCTAssertEqual(sut.characters[0].videoGames, queenArianna.videoGames)
-            XCTAssertEqual(sut.characters[0].parkAttractions, queenArianna.parkAttractions)
-            XCTAssertEqual(sut.characters[0].allies, queenArianna.allies)
-            XCTAssertEqual(sut.characters[0].enemies, queenArianna.enemies)
-            XCTAssertEqual(sut.characters[0].url, queenArianna.url)
-            XCTAssertEqual(sut.characters[0].imageUrl, queenArianna.imageUrl)
-            
-            XCTAssertEqual(sut.characters[1].name, elsa.name)
-            XCTAssertEqual(sut.characters[1].id, elsa.id)
-            XCTAssertEqual(sut.characters[1].films, elsa.films)
-            XCTAssertEqual(sut.characters[1].shortFilms, elsa.shortFilms)
-            XCTAssertEqual(sut.characters[1].tvShows, elsa.tvShows)
-            XCTAssertEqual(sut.characters[1].videoGames, elsa.videoGames)
-            XCTAssertEqual(sut.characters[1].parkAttractions, elsa.parkAttractions)
-            XCTAssertEqual(sut.characters[1].allies, elsa.allies)
-            XCTAssertEqual(sut.characters[1].enemies, elsa.enemies)
-            XCTAssertEqual(sut.characters[1].url, elsa.url)
-            XCTAssertEqual(sut.characters[1].imageUrl, elsa.imageUrl)
 
-            XCTAssertEqual(sut.viewState, .loaded)
-        } else {
-            XCTFail()
-        }
+        // The @Model macro seems to be giving difference instances of the same Character a
+        // different hidden "persistentBackingData" value which breaks the expected equality.
+        // Resorting to comparing all expected values indiviudally
+        XCTAssertEqual(sut.characters[0].name, queenArianna.name)
+        XCTAssertEqual(sut.characters[0].id, queenArianna.id)
+        XCTAssertEqual(sut.characters[0].films, queenArianna.films)
+        XCTAssertEqual(sut.characters[0].shortFilms, queenArianna.shortFilms)
+        XCTAssertEqual(sut.characters[0].tvShows, queenArianna.tvShows)
+        XCTAssertEqual(sut.characters[0].videoGames, queenArianna.videoGames)
+        XCTAssertEqual(sut.characters[0].parkAttractions, queenArianna.parkAttractions)
+        XCTAssertEqual(sut.characters[0].allies, queenArianna.allies)
+        XCTAssertEqual(sut.characters[0].enemies, queenArianna.enemies)
+        XCTAssertEqual(sut.characters[0].url, queenArianna.url)
+        XCTAssertEqual(sut.characters[0].imageUrl, queenArianna.imageUrl)
+        
+        XCTAssertEqual(sut.characters[1].name, elsa.name)
+        XCTAssertEqual(sut.characters[1].id, elsa.id)
+        XCTAssertEqual(sut.characters[1].films, elsa.films)
+        XCTAssertEqual(sut.characters[1].shortFilms, elsa.shortFilms)
+        XCTAssertEqual(sut.characters[1].tvShows, elsa.tvShows)
+        XCTAssertEqual(sut.characters[1].videoGames, elsa.videoGames)
+        XCTAssertEqual(sut.characters[1].parkAttractions, elsa.parkAttractions)
+        XCTAssertEqual(sut.characters[1].allies, elsa.allies)
+        XCTAssertEqual(sut.characters[1].enemies, elsa.enemies)
+        XCTAssertEqual(sut.characters[1].url, elsa.url)
+        XCTAssertEqual(sut.characters[1].imageUrl, elsa.imageUrl)
+
+        XCTAssertEqual(sut.viewState, .loaded)
     }
     
     func test_getCharacters_failure() async throws {
@@ -127,9 +132,7 @@ final class ExplorerViewModelTests: XCTestCase {
         
         XCTAssertEqual(sut.favourites.count, 0)
         
-        if let elsa = Character(dto: MockResponse.elsa) {
-            try await self.storageManager.store(elsa)
-        }
+        try await self.storageManager.store(elsa)
         
         await sut.fetchFavourites()
         
