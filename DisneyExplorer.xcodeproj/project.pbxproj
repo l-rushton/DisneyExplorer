@@ -125,6 +125,26 @@
 			path = CharacterDetails;
 			sourceTree = "<group>";
 		};
+		D317023C2BB230E50096FD26 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D317022F2BB1AC7C0096FD26 /* StorageManager.swift */,
+				D3FE83B02BAF6DBF00784BF7 /* CharacterImage.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		D317023D2BB230F40096FD26 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				D3FE83932BAF053000784BF7 /* JsonResponses */,
+				D3FE839E2BAF1B3200784BF7 /* MockURLSession.swift */,
+				D3FE83912BAF04D600784BF7 /* StubData.swift */,
+				D317023A2BB2243E0096FD26 /* MockResponse.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		D3FE834F2BAEF72B00784BF7 = {
 			isa = PBXGroup;
 			children = (
@@ -150,11 +170,10 @@
 			children = (
 				D3FE835B2BAEF72B00784BF7 /* DisneyExplorerApp.swift */,
 				D3FE835D2BAEF72B00784BF7 /* ContentView.swift */,
-				D317022F2BB1AC7C0096FD26 /* StorageManager.swift */,
 				D3FE83A12BAF1C5D00784BF7 /* Networking */,
 				D31040942BB04ACF007C695C /* CharacterDetails */,
 				D3FE839B2BAF156100784BF7 /* Explorer */,
-				D3FE83B02BAF6DBF00784BF7 /* CharacterImage.swift */,
+				D317023C2BB230E50096FD26 /* Shared */,
 				D3FE835F2BAEF72E00784BF7 /* Assets.xcassets */,
 				D3FE83662BAEF72E00784BF7 /* DisneyExplorer.xcdatamodeld */,
 				D3FE83612BAEF72E00784BF7 /* Preview Content */,
@@ -177,10 +196,7 @@
 				D3FE83B22BAF701C00784BF7 /* DetailsViewModelTests.swift */,
 				D3FE83A72BAF362500784BF7 /* ExplorerViewModelTests.swift */,
 				D31702342BB1FF930096FD26 /* StorageManagerTests.swift */,
-				D3FE839E2BAF1B3200784BF7 /* MockURLSession.swift */,
-				D3FE83912BAF04D600784BF7 /* StubData.swift */,
-				D317023A2BB2243E0096FD26 /* MockResponse.swift */,
-				D3FE83932BAF053000784BF7 /* JsonResponses */,
+				D317023D2BB230F40096FD26 /* Shared */,
 			);
 			path = DisneyExplorerTests;
 			sourceTree = "<group>";

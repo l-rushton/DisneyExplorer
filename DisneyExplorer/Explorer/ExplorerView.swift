@@ -43,7 +43,7 @@ struct ExplorerView: View {
                             } else {
                                 HStack {
                                     ScrollView(.horizontal) {
-                                        HStack {
+                                        HStack {    
                                             ForEach(viewModel.favourites) { favourite in
                                                 CharacterImage(url: favourite.imageUrl, size: 50)
                                             }
