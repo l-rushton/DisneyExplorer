@@ -14,12 +14,12 @@ class DisneyClient {
         self.urlSession = urlSession
     }
     
-    func getAllCharacters(url: String = ClientUrls.getAllCharacters.rawValue) async -> Result<GetAllDTO, ClientError> {
-        let url = URL(string: url)
+    func getCharacters(url: String = "https://api.disneyapi.dev/character") async -> Result<GetAllDTO, ClientError> {
+        let combinedUrl = URL(string: url)
         
-        if let url {
+        if let combinedUrl {
             do {
-                let (data, _) = try await urlSession.data(from: url)
+                let (data, _) = try await urlSession.data(from: combinedUrl)
                 let response = try JSONDecoder().decode(GetAllDTO.self, from: data)
                 
                 return .success(response)
@@ -43,6 +43,12 @@ enum ClientError: Error {
     case invalidUrl
 }
 
-enum ClientUrls: String {
-    case getAllCharacters = "https://api.disneyapi.dev/character"
+extension ClientError {
+    var string: String {
+        switch self {
+        case .networkError: "Network error, please try again"
+        case .decodingError: "Network response invalid, please try again"
+        case .invalidUrl: "Invalid request, please try again"
+        }
+    }
 }

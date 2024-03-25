@@ -29,43 +29,43 @@ struct CharacterDetailsView: View {
             List {
                 if !viewModel.character.films.isEmpty {
                     Section(header: Text("Films")) {
-                        Text(viewModel.makeFilmsString(films: viewModel.character.films))
+                        Text(viewModel.makeStringFromArray(viewModel.character.films))
                     }
                 }
                 
                 if !viewModel.character.shortFilms.isEmpty {
                     Section(header: Text("Short films")) {
-                        Text(viewModel.makeFilmsString(films: viewModel.character.shortFilms))
+                        Text(viewModel.makeStringFromArray(viewModel.character.shortFilms))
                     }
                 }
                 
                 if let tvShows = viewModel.character.tvShows, !tvShows.isEmpty {
                     Section(header: Text("TV shows")) {
-                        Text(viewModel.makeFilmsString(films: tvShows))
+                        Text(viewModel.makeStringFromArray(tvShows))
                     }
                 }
                 
                 if let videoGames = viewModel.character.videoGames, !videoGames.isEmpty {
                     Section(header: Text("Video games")) {
-                        Text(viewModel.makeFilmsString(films: videoGames))
+                        Text(viewModel.makeStringFromArray(videoGames))
                     }
                 }
                 
                 if let parkAttractions = viewModel.character.parkAttractions, !parkAttractions.isEmpty {
                     Section(header: Text("Park attractions")) {
-                        Text(viewModel.makeFilmsString(films: parkAttractions))
+                        Text(viewModel.makeStringFromArray(parkAttractions))
                     }
                 }
                 
                 if let allies = viewModel.character.allies, !allies.isEmpty {
                     Section(header: Text("Allies")) {
-                        Text(viewModel.makeFilmsString(films: allies))
+                        Text(viewModel.makeStringFromArray(allies))
                     }
                 }
 
                 if let enemies = viewModel.character.enemies, !enemies.isEmpty {
                     Section(header: Text("Enemies")) {
-                        Text(viewModel.makeFilmsString(films: enemies))
+                        Text(viewModel.makeStringFromArray(enemies))
                     }
                 }
             }

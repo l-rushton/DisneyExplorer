@@ -19,18 +19,21 @@ class ExplorerViewModel {
     private(set) var characters: [Character]
     private(set) var favourites: [Character]
     private(set) var nextPageUrl: String?
+    var nextPageLoading: Bool = false
     
     init(
         client: DisneyClient = DisneyClient(),
         viewState: ExplorerViewState = .notLoaded, 
         characters: [Character] = [],
         favourites: [Character] = [],
+        nextPageUrl: String? = nil,
         storageManager: StorageManager
     ) {
         self.client = client
         self.viewState = viewState
         self.characters = characters
         self.favourites = favourites
+        self.nextPageUrl = nextPageUrl
         
         self.storageManager = storageManager
     }
@@ -43,10 +46,20 @@ class ExplorerViewModel {
         }
     }
     
-    func getAllCharacters() async {
-        viewState = .loading
+    func getCharacters(nextPage: Bool = false) async {
+        let result: Result<GetAllDTO, ClientError>
         
-        let result = await client.getAllCharacters()
+        if nextPage, let nextPageUrl {
+            
+            nextPageLoading = true
+            result = await client.getCharacters(url: nextPageUrl)
+            
+        } else {
+            
+            viewState = .loading
+            result = await client.getCharacters()
+            
+        }
         
         switch result {
         case let .success(getAllDTO):
@@ -55,19 +68,27 @@ class ExplorerViewModel {
             } ?? []
             
             nextPageUrl = getAllDTO.info?.nextPage
-            characters = charactersResult
+            
+            if nextPage {
+                characters += charactersResult
+                nextPageLoading = false 
+            } else {
+                characters = charactersResult
+            }
+
+            characters.sort(by: { $0.films.count > $1.films.count })
+            
             viewState = .loaded
             
         case let .failure(error):
-            // TODO: surface error messages
-            viewState = .error
+            viewState = .error(error.string)
         }
     }
 }
 
-enum ExplorerViewState {
+enum ExplorerViewState: Equatable {
     case notLoaded
     case loading
     case loaded
-    case error
+    case error(String)
 }

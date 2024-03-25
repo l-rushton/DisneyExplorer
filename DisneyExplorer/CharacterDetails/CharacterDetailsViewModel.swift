@@ -11,7 +11,7 @@ import Observation
 
 @Observable
 class CharacterDetailsViewModel: ObservableObject {
-    private var storageManager: StorageManager
+    private(set) var storageManager: StorageManager
     
     private(set) var character: Character
     private(set) var isFavourite: Bool
@@ -56,14 +56,14 @@ class CharacterDetailsViewModel: ObservableObject {
         }
     }
     
-    func makeFilmsString(films: [String]) -> String {
+    func makeStringFromArray(_ arr: [String]) -> String {
         var string = ""
         
-        guard !films.isEmpty else {
+        guard !arr.isEmpty else {
             return string
         }
 
-        for film in films {
+        for film in arr {
             string.append("\(film), ")
         }
         

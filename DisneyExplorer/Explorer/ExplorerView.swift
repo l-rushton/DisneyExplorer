@@ -54,7 +54,7 @@ struct ExplorerView: View {
                         )
                         
                         Section(header: Text("Characters")) {
-                            ForEach(viewModel.characters) { character in
+                            ForEach(viewModel.characters, id: \.id) { character in
                                 ZStack(alignment: .leading) {
                                     NavigationLink(
                                         destination: CharacterDetailsView(
@@ -76,9 +76,24 @@ struct ExplorerView: View {
                         
                         Section {
                             Button {
-//                                await viewModel.fetchNextPage()
+                                Task {
+                                    if !viewModel.nextPageLoading {
+                                        await viewModel.getCharacters(nextPage: true)
+                                    }
+                                }
                             } label: {
-                                Image(systemName: "plus.circle")
+                                HStack {
+                                    Spacer()
+                                    if viewModel.nextPageLoading {
+                                        ProgressView()
+                                            .frame(width: 50, height: 50)
+                                    } else {
+                                        Image(systemName: "plus.circle")
+                                            .resizable()
+                                            .frame(width: 50, height: 50)
+                                    }
+                                    Spacer()
+                                }
                             }
                         }
                         .listRowBackground(Color(uiColor: UIColor.secondarySystemBackground))
@@ -89,14 +104,14 @@ struct ExplorerView: View {
                     await viewModel.fetchFavourites()
                 }
                 .refreshable {
-                    await viewModel.getAllCharacters()
+                    await viewModel.getCharacters()
                 }
-            case .error:
+            case let .error(message):
                 VStack {
-                    Text("Error")
+                    Text(message)
                     actionButton(buttonType: .retry) {
                         Task {
-                            await viewModel.getAllCharacters()
+                            await viewModel.getCharacters()
                         }
                     }
                 }
@@ -105,7 +120,7 @@ struct ExplorerView: View {
         .task {
             if !fetched {
                 fetched = true
-                await viewModel.getAllCharacters()
+                await viewModel.getCharacters()
             }
         }
     }

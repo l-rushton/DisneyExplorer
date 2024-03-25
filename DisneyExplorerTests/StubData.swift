@@ -26,7 +26,7 @@ struct StubData {
 struct MockResponse {
     static let info = InfoDTO(
         totalPages: 149,
-        count: 50,
+        count: 2,
         previousPage: "https://api.disneyapi.dev/character?page=3",
         nextPage: "https://api.disneyapi.dev/character?page=5"
     )
@@ -43,8 +43,6 @@ struct MockResponse {
         sourceUrl: "https://disney.fandom.com/wiki/Queen_Arianna",
         name: "Queen Arianna",
         imageUrl: "https://static.wikia.nocookie.net/disney/images/1/15/Arianna_Tangled.jpg/revision/latest?cb=20160715191802",
-        createdAt: "2021-04-12T01:33:34.458Z",
-        updatedAt: "2021-04-12T01:33:34.458Z",
         url: "https://api.disneyapi.dev/characters/308"
     )
     
@@ -60,8 +58,6 @@ struct MockResponse {
         sourceUrl: "https://disney.fandom.com/wiki/Elsa",
         name: "Elsa",
         imageUrl: "",
-        createdAt: "2021-04-12T01:33:34.458Z",
-        updatedAt: "2021-04-12T01:33:34.458Z",
         url: "https://api.disneyapi.dev/characters/309"
     )
 }
