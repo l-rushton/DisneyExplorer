@@ -11,7 +11,7 @@ import Observation
 
 @Observable
 class CharacterDetailsViewModel: ObservableObject {
-    private var modelContext: ModelContext
+    private var storageManager: StorageManager
     
     private(set) var character: Character
     private(set) var isFavourite: Bool
@@ -20,43 +20,40 @@ class CharacterDetailsViewModel: ObservableObject {
     
     private(set) var shortFilmsString: String = ""
     
-    init(character: Character, isFavourite: Bool = false, modelContext: ModelContext) {
+    init(character: Character, isFavourite: Bool = false, storageManager: StorageManager) {
         self.character = character
         self.isFavourite = isFavourite
-        self.modelContext = modelContext
+        self.storageManager = storageManager
     }
     
-    func checkCharacterIsFavourite() {
+    func checkCharacterIsFavourite() async {
         let matchingId = character.id
-        var descriptor = FetchDescriptor<Character>(predicate: #Predicate {
-            $0.id == matchingId
-        }, sortBy: [ .init(\.name) ])
-        
-        descriptor.fetchLimit = 1
         
         do {
-            let ch = try modelContext.fetch(descriptor)
-            isFavourite = ch.isEmpty ? false : true
+            isFavourite = try await storageManager.isCharacterFavourite(id: matchingId)
         } catch {
             isFavourite = false
         }
     }
     
-    func deleteCharacterFromFavourites() {
+    func deleteCharacterFromFavourites() async throws {
         let id = character.id
+        
         do {
-            try modelContext.delete(model: Character.self, where: #Predicate { $0.id == id})
-            
+            try await storageManager.delete(id: id)
             isFavourite = false
         } catch {
-            debugPrint("Couldn't delete character")
+            isFavourite = true
         }
     }
     
-    func saveCharacterToFavourites() {
-        modelContext.insert(character)
-        try? modelContext.save()
-        isFavourite = true
+    func saveCharacterToFavourites() async {
+        do {
+            try await storageManager.store(self.character)
+            isFavourite = true
+        } catch {
+            isFavourite = false
+        }
     }
     
     func makeFilmsString(films: [String]) -> String {

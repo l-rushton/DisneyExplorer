@@ -8,8 +8,8 @@
 import Foundation
 
 struct GetAllDTO: Decodable, Equatable {
-    let info: InfoDTO
-    let data: [CharacterDTO]
+    let info: InfoDTO?
+    let data: [CharacterDTO]?
 }
 
 struct InfoDTO: Decodable, Equatable {
@@ -31,12 +31,10 @@ struct CharacterDTO: Decodable, Equatable {
     let sourceUrl: String?
     let name: String?
     let imageUrl: String?
-    let createdAt: String?
-    let updatedAt: String?
     let url: String?
 
     enum CodingKeys: String, CodingKey {
         case id = "_id"
-        case films, shortFilms, tvShows, videoGames, parkAttractions, allies, enemies, sourceUrl, name, imageUrl, createdAt, updatedAt, url
+        case films, shortFilms, tvShows, videoGames, parkAttractions, allies, enemies, sourceUrl, name, imageUrl, url
     }
 }

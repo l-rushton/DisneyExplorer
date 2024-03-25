@@ -11,35 +11,35 @@ import SwiftData
 
 @Observable
 class ExplorerViewModel {
-    var modelContext: ModelContext
+    private(set) var storageManager: StorageManager
     
     private(set) var client: DisneyClient
     private(set) var viewState: ExplorerViewState
     
     private(set) var characters: [Character]
     private(set) var favourites: [Character]
+    private(set) var nextPageUrl: String?
     
     init(
         client: DisneyClient = DisneyClient(),
         viewState: ExplorerViewState = .notLoaded, 
         characters: [Character] = [],
         favourites: [Character] = [],
-        modelContext: ModelContext
+        storageManager: StorageManager
     ) {
         self.client = client
         self.viewState = viewState
         self.characters = characters
         self.favourites = favourites
         
-        self.modelContext = modelContext
+        self.storageManager = storageManager
     }
     
-    func fetchFavourites() {
+    func fetchFavourites() async {
         do {
-            let descriptor = FetchDescriptor<Character>()
-            favourites = try modelContext.fetch(descriptor)
+            favourites = try await storageManager.fetchAll()
         } catch {
-            debugPrint("Fetch failed")
+            favourites = []
         }
     }
     
@@ -49,12 +49,15 @@ class ExplorerViewModel {
         let result = await client.getAllCharacters()
         
         switch result {
-        case let .success(characterDTO):
-            let charactersResult: [Character] = characterDTO.data.compactMap{ characterDTO in
+        case let .success(getAllDTO):
+            let charactersResult: [Character] = getAllDTO.data?.compactMap{ characterDTO in
                 return Character(dto: characterDTO)
-            }
+            } ?? []
+            
+            nextPageUrl = getAllDTO.info?.nextPage
             characters = charactersResult
             viewState = .loaded
+            
         case let .failure(error):
             // TODO: surface error messages
             viewState = .error

@@ -10,18 +10,19 @@ import SwiftData
 
 @main
 struct DisneyExplorerApp: App {
-    let container: ModelContainer
+    let storageManager: StorageManager
 
     var body: some Scene {
         WindowGroup {
-            ContentView(modelContext: container.mainContext)
+            ContentView(storageManager: storageManager)
         }
-        .modelContainer(container)
+        .modelContainer(storageManager.modelContainer)
     }
     
     init() {
         do {
-            container = try ModelContainer(for: Character.self)
+            let container = try ModelContainer(for: Character.self)
+            storageManager = StorageManager(modelContainer: container)
         } catch {
             fatalError("Failed to create ModelContainer, favourite characters won't load")
         }

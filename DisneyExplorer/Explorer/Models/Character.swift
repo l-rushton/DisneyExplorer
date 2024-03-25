@@ -13,7 +13,12 @@ class Character: Equatable, Identifiable {
     let id: Int
     let films: [String]
     let shortFilms: [String]
-    let url: String
+    let tvShows: [String]?
+    let videoGames: [String]?
+    let parkAttractions: [String]?
+    let allies: [String]?
+    let enemies: [String]?
+    let url: String?
     let imageUrl: String
     
     init(
@@ -33,14 +38,19 @@ class Character: Equatable, Identifiable {
     }
     
     init?(dto: CharacterDTO) {
-        guard let id = dto.id else{
+        guard let id = dto.id else {
             return nil
         }
         
         self.name = dto.name ?? ""
         self.id = id
-        self.films = dto.films ?? [""]
-        self.shortFilms = dto.films ?? [""]
+        self.films = dto.films ?? []
+        self.shortFilms = dto.films ?? []
+        self.tvShows = dto.tvShows
+        self.videoGames = dto.videoGames
+        self.parkAttractions = dto.parkAttractions
+        self.allies = dto.allies
+        self.enemies = dto.enemies
         self.url = dto.url ?? ""
         self.imageUrl = dto.imageUrl ?? ""
     }

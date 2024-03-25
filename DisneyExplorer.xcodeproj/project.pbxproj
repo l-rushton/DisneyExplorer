@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D31040962BB04B15007C695C /* CharacterDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31040952BB04B15007C695C /* CharacterDetailsViewModel.swift */; };
 		D31040982BB07A78007C695C /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31040972BB07A77007C695C /* ActionButton.swift */; };
+		D31702302BB1AC7C0096FD26 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D317022F2BB1AC7C0096FD26 /* StorageManager.swift */; };
 		D3FE835C2BAEF72B00784BF7 /* DisneyExplorerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FE835B2BAEF72B00784BF7 /* DisneyExplorerApp.swift */; };
 		D3FE835E2BAEF72B00784BF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FE835D2BAEF72B00784BF7 /* ContentView.swift */; };
 		D3FE83602BAEF72E00784BF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3FE835F2BAEF72E00784BF7 /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		D31040952BB04B15007C695C /* CharacterDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewModel.swift; sourceTree = "<group>"; };
 		D31040972BB07A77007C695C /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
+		D317022F2BB1AC7C0096FD26 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		D3FE83582BAEF72B00784BF7 /* DisneyExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DisneyExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3FE835B2BAEF72B00784BF7 /* DisneyExplorerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisneyExplorerApp.swift; sourceTree = "<group>"; };
 		D3FE835D2BAEF72B00784BF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			children = (
 				D3FE835B2BAEF72B00784BF7 /* DisneyExplorerApp.swift */,
 				D3FE835D2BAEF72B00784BF7 /* ContentView.swift */,
+				D317022F2BB1AC7C0096FD26 /* StorageManager.swift */,
 				D3FE83A12BAF1C5D00784BF7 /* Networking */,
 				D31040942BB04ACF007C695C /* CharacterDetails */,
 				D3FE839B2BAF156100784BF7 /* Explorer */,
@@ -387,6 +390,7 @@
 				D31040962BB04B15007C695C /* CharacterDetailsViewModel.swift in Sources */,
 				D3FE835E2BAEF72B00784BF7 /* ContentView.swift in Sources */,
 				D3FE835C2BAEF72B00784BF7 /* DisneyExplorerApp.swift in Sources */,
+				D31702302BB1AC7C0096FD26 /* StorageManager.swift in Sources */,
 				D3FE83B52BAF717A00784BF7 /* CharacterDetailsView.swift in Sources */,
 				D31040982BB07A78007C695C /* ActionButton.swift in Sources */,
 			);

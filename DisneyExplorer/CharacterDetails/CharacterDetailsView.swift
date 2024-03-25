@@ -13,8 +13,8 @@ struct CharacterDetailsView: View {
     
     var body: some View {
         VStack {
-            characterImage(url: viewModel.character.imageUrl, size: 300)
-                .overlay(alignment: .topLeading) {
+            CharacterImage(url: viewModel.character.imageUrl, size: 300)
+                .overlay(alignment: .topTrailing) {
                     if viewModel.isFavourite {
                         Image(systemName: "star.fill")
                             .padding()
@@ -38,43 +38,56 @@ struct CharacterDetailsView: View {
                         Text(viewModel.makeFilmsString(films: viewModel.character.shortFilms))
                     }
                 }
-
-            }
-            if viewModel.isFavourite {
-                Button {
-                    viewModel.deleteCharacterFromFavourites()
-                } label: {
-                    HStack {
-                        Spacer()
-                        Text("Delete from favourites")
-                            .foregroundColor(.black)
-                        Spacer()
+                
+                if let tvShows = viewModel.character.tvShows, !tvShows.isEmpty {
+                    Section(header: Text("TV shows")) {
+                        Text(viewModel.makeFilmsString(films: tvShows))
                     }
-                    .padding()
-                    .background(Color.red)
-                    .cornerRadius(10)
-                    .padding()
+                }
+                
+                if let videoGames = viewModel.character.videoGames, !videoGames.isEmpty {
+                    Section(header: Text("Video games")) {
+                        Text(viewModel.makeFilmsString(films: videoGames))
+                    }
+                }
+                
+                if let parkAttractions = viewModel.character.parkAttractions, !parkAttractions.isEmpty {
+                    Section(header: Text("Park attractions")) {
+                        Text(viewModel.makeFilmsString(films: parkAttractions))
+                    }
+                }
+                
+                if let allies = viewModel.character.allies, !allies.isEmpty {
+                    Section(header: Text("Allies")) {
+                        Text(viewModel.makeFilmsString(films: allies))
+                    }
+                }
+
+                if let enemies = viewModel.character.enemies, !enemies.isEmpty {
+                    Section(header: Text("Enemies")) {
+                        Text(viewModel.makeFilmsString(films: enemies))
+                    }
+                }
+            }
+            
+            if viewModel.isFavourite {
+                actionButton(buttonType: .delete) {
+                    Task {
+                        try await viewModel.deleteCharacterFromFavourites()
+                    }
                 }
             } else {
-                Button {
-                    viewModel.saveCharacterToFavourites()
-                } label: {
-                    HStack {
-                        Spacer()
-                        Text("Add to favourites")
-                            .foregroundStyle(.black)
-                        Spacer()
+                actionButton(buttonType: .save) {
+                    Task {
+                        await viewModel.saveCharacterToFavourites()
                     }
-                    .padding()
-                    .background(Color.green)
-                    .cornerRadius(10)
-                    .padding()
                 }
             }
         }
         .background (Color(UIColor.secondarySystemBackground))
-        .onAppear {
-            viewModel.checkCharacterIsFavourite()
+        .task {
+            await viewModel.checkCharacterIsFavourite()
         }
     }
 }
+

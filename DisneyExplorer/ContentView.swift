@@ -9,11 +9,11 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    let modelContext: ModelContext
+    let storageManager: StorageManager
     
     var body: some View {
         NavigationView {
-            ExplorerView(modelContext: modelContext)
+            ExplorerView(viewModel: ExplorerViewModel(storageManager: storageManager))
         }
     }
 }

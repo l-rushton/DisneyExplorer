@@ -12,7 +12,7 @@ struct CharacterCard: View {
     
     var body: some View {
         HStack {
-            characterImage(url: character.imageUrl)
+            CharacterImage(url: character.imageUrl)
             Text(character.name)
                 .bold()
                 .padding()
