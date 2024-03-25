@@ -19,13 +19,7 @@ struct ExplorerView: View {
         ZStack {
             switch viewModel.viewState {
             case .notLoaded:
-                Rectangle()
-                    .foregroundStyle(.clear)
-                    .task {
-                        if !viewModel.fetched {
-                            await viewModel.getCharacters()
-                        }
-                    }
+                EmptyView()
             case .loading:
                 ProgressView()
             case .loaded:
@@ -43,7 +37,7 @@ struct ExplorerView: View {
                             } else {
                                 HStack {
                                     ScrollView(.horizontal) {
-                                        HStack {    
+                                        HStack {
                                             ForEach(viewModel.favourites) { favourite in
                                                 CharacterImage(url: favourite.imageUrl, size: 50)
                                             }
@@ -118,6 +112,11 @@ struct ExplorerView: View {
                         await viewModel.getCharacters()
                     }
                 }
+            }
+        }
+        .task {
+            if !viewModel.fetched {
+                await viewModel.getCharacters()
             }
         }
     }
