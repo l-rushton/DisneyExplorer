@@ -1,5 +1,5 @@
 
-# HeatGeek iOS Tech Task - Louis Rushton
+# Heat Geek iOS Tech Task - Louis Rushton
 
   
 
