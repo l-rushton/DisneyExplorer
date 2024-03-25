@@ -31,7 +31,10 @@ Along with the requirements, I also implemented a couple of additional features:
 ## Main User Journey
 
 
-[Screen Recording 2024-03-25 at 22.09.16.mov.zip](https://github.com/l-rushton/DisneyExplorer/files/14750202/Screen.Recording.2024-03-25.at.22.09.16.mov.zip)
+
+
+https://github.com/l-rushton/DisneyExplorer/assets/89603800/dbb39103-981b-46e9-b5c1-34b19ebbeb21
+
 
   
 
@@ -39,7 +42,10 @@ Along with the requirements, I also implemented a couple of additional features:
 
   
 
-https://github.com/l-rushton/DisneyExplorer/assets/89603800/7097d908-580f-4dd1-b03e-7fdd7ca0ab99
+
+https://github.com/l-rushton/DisneyExplorer/assets/89603800/28c5b049-261b-4d6b-8aa4-954f2b736153
+
+
 
 
 
