@@ -7,31 +7,37 @@
 
 import SwiftUI
 
-@ViewBuilder
-func actionButton(buttonType: ActionButton, action: @escaping () -> Void) -> some View {
-    Button {
-        action()
-    } label: {
-        HStack {
-            Spacer()
-            Text(buttonType.title)
-                .foregroundStyle(.black)
-            Spacer()
+struct ActionButton: View {
+    let buttonType: ActionButtonType
+    let action: @Sendable () async throws -> Void
+    
+    var body: some View {
+        Button {
+            Task {
+                try? await action()
+            }
+        } label: {
+            HStack {
+                Spacer()
+                Text(buttonType.title)
+                    .foregroundStyle(.black)
+                Spacer()
+            }
+            .padding()
+            .background(buttonType.color)
+            .cornerRadius(10)
+            .padding()
         }
-        .padding()
-        .background(buttonType.color)
-        .cornerRadius(10)
-        .padding()
     }
 }
 
-enum ActionButton {
+enum ActionButtonType {
     case save
     case delete
     case retry
 }
 
-extension ActionButton {
+extension ActionButtonType {
     var title: String {
         switch self {
         case .save: "Add to favourites"

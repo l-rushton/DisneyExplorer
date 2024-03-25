@@ -15,6 +15,7 @@ class DisneyClient {
     }
     
     func getCharacters(url: String = "https://api.disneyapi.dev/character") async -> Result<GetAllDTO, ClientError> {
+        
         let combinedUrl = URL(string: url)
         
         if let combinedUrl {
@@ -23,7 +24,6 @@ class DisneyClient {
                 let response = try JSONDecoder().decode(GetAllDTO.self, from: data)
                 
                 return .success(response)
-                
             } catch {
                 if error is URLError {
                     return .failure(.networkError)

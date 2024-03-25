@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct CharacterImage: View {
     let url: String
     let size: CGFloat

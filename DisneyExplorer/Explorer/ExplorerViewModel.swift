@@ -19,23 +19,24 @@ class ExplorerViewModel {
     private(set) var characters: [Character]
     private(set) var favourites: [Character]
     private(set) var nextPageUrl: String?
-    var nextPageLoading: Bool = false
-    
+    private(set) var nextPageLoading: Bool = false
+    private(set) var fetched: Bool = false
+
     init(
+        storageManager: StorageManager,
         client: DisneyClient = DisneyClient(),
         viewState: ExplorerViewState = .notLoaded, 
         characters: [Character] = [],
         favourites: [Character] = [],
-        nextPageUrl: String? = nil,
-        storageManager: StorageManager
+        nextPageUrl: String? = nil
     ) {
+        self.storageManager = storageManager
+        
         self.client = client
         self.viewState = viewState
         self.characters = characters
         self.favourites = favourites
         self.nextPageUrl = nextPageUrl
-        
-        self.storageManager = storageManager
     }
     
     func fetchFavourites() async {
@@ -46,15 +47,11 @@ class ExplorerViewModel {
         let result: Result<GetAllDTO, ClientError>
         
         if nextPage, let nextPageUrl {
-            
             nextPageLoading = true
             result = await client.getCharacters(url: nextPageUrl)
-            
         } else {
-            
             viewState = .loading
             result = await client.getCharacters()
-            
         }
         
         switch result {
@@ -75,6 +72,7 @@ class ExplorerViewModel {
             characters.sort(by: { $0.films.count > $1.films.count })
             
             viewState = .loaded
+            fetched = true
             
         case let .failure(error):
             viewState = .error(error.string)

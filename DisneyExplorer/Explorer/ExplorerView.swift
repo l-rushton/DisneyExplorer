@@ -10,7 +10,6 @@ import SwiftData
 
 struct ExplorerView: View {
     private var viewModel: ExplorerViewModel
-    @State private var fetched: Bool = false
     
     init(viewModel: ExplorerViewModel) {
         self.viewModel = viewModel
@@ -20,7 +19,13 @@ struct ExplorerView: View {
         ZStack {
             switch viewModel.viewState {
             case .notLoaded:
-                EmptyView()
+                Rectangle()
+                    .foregroundStyle(.clear)
+                    .task {
+                        if !viewModel.fetched {
+                            await viewModel.getCharacters()
+                        }
+                    }
             case .loading:
                 ProgressView()
             case .loaded:
@@ -57,7 +62,7 @@ struct ExplorerView: View {
                             ForEach(viewModel.characters, id: \.id) { character in
                                 ZStack(alignment: .leading) {
                                     NavigationLink(
-                                        destination: CharacterDetailsView(
+                                        destination: CharacterDetailsView.init(
                                             viewModel: CharacterDetailsViewModel(
                                                 character: character,
                                                 storageManager: viewModel.storageManager
@@ -109,18 +114,10 @@ struct ExplorerView: View {
             case let .error(message):
                 VStack {
                     Text(message)
-                    actionButton(buttonType: .retry) {
-                        Task {
-                            await viewModel.getCharacters()
-                        }
+                    ActionButton(buttonType: .retry) {
+                        await viewModel.getCharacters()
                     }
                 }
-            }
-        }
-        .task {
-            if !fetched {
-                fetched = true
-                await viewModel.getCharacters()
             }
         }
     }

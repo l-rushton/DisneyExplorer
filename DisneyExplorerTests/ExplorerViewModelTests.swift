@@ -40,15 +40,15 @@ final class ExplorerViewModelTests: XCTestCase {
         let successUrlSession = MockURLSession(data: data, urlResponse: httpResponse)
         let client = DisneyClient(urlSession: successUrlSession)
         
-        let sut = ExplorerViewModel(client: client, storageManager: self.storageManager)
+        let sut = ExplorerViewModel(storageManager: self.storageManager, client: client)
         
         XCTAssertEqual(sut.viewState, .notLoaded)
         
         await sut.getCharacters()
 
-        // The @Model macro seems to be giving difference instances of the same Character a
+        // The @Model macro seems to be giving different copies of the same Character a
         // different hidden "persistentBackingData" value which breaks the expected equality.
-        // Resorting to comparing all expected values indiviudally
+        // Resorting to comparing all expected values indiviudally.
         XCTAssertEqual(sut.characters[0].name, queenArianna.name)
         XCTAssertEqual(sut.characters[0].id, queenArianna.id)
         XCTAssertEqual(sut.characters[0].films, queenArianna.films)
@@ -80,7 +80,7 @@ final class ExplorerViewModelTests: XCTestCase {
         let failingUrlSession = MockURLSession()
         let client = DisneyClient(urlSession: failingUrlSession)
         
-        let sut = ExplorerViewModel(client: client, storageManager: self.storageManager)
+        let sut = ExplorerViewModel(storageManager: self.storageManager, client: client)
         
         XCTAssertEqual(sut.viewState, .notLoaded)
         
@@ -110,10 +110,9 @@ final class ExplorerViewModelTests: XCTestCase {
         let expectedNextPageUrl = "https://api.disneyapi.dev/character?page=6"
         
         let sut = ExplorerViewModel(
-            client: client,
+            storageManager: self.storageManager, client: client,
             characters: characters,
-            nextPageUrl: nextPageUrl,
-            storageManager: self.storageManager
+            nextPageUrl: nextPageUrl
         )
         
         XCTAssertEqual(sut.characters.count, 1)

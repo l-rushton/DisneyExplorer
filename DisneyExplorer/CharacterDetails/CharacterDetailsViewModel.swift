@@ -15,9 +15,7 @@ class CharacterDetailsViewModel: ObservableObject {
     
     private(set) var character: Character
     private(set) var isFavourite: Bool
-    
     private(set) var filmsString: String = ""
-    
     private(set) var shortFilmsString: String = ""
     
     init(character: Character, isFavourite: Bool = false, storageManager: StorageManager) {
@@ -39,8 +37,10 @@ class CharacterDetailsViewModel: ObservableObject {
     }
     
     func saveCharacterToFavourites() async {
+        let character = self.character
+        
         do {
-            try await storageManager.store(self.character)
+            try await storageManager.store(character)
             isFavourite = true
         } catch {
             isFavourite = false

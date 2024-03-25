@@ -7,9 +7,12 @@
 
 import SwiftUI
 
-struct CharacterDetailsView: View {    
-    // try refactoring swiftdata crud out and trying again
-    var viewModel: CharacterDetailsViewModel
+struct CharacterDetailsView: View {
+    private var viewModel: CharacterDetailsViewModel
+    
+    init(viewModel: CharacterDetailsViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         VStack {
@@ -71,16 +74,12 @@ struct CharacterDetailsView: View {
             }
             
             if viewModel.isFavourite {
-                actionButton(buttonType: .delete) {
-                    Task {
-                        try await viewModel.deleteCharacterFromFavourites()
-                    }
+                ActionButton(buttonType: .delete) {
+                    try await viewModel.deleteCharacterFromFavourites()
                 }
             } else {
-                actionButton(buttonType: .save) {
-                    Task {
-                        await viewModel.saveCharacterToFavourites()
-                    }
+                ActionButton(buttonType: .save) {
+                    await viewModel.saveCharacterToFavourites()
                 }
             }
         }
